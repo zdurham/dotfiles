@@ -28,9 +28,48 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
+servers = {
+  ["pyright"] = {},
+  ["tsserver"] = {},
+  ["rust_analyzer"] = {
+    settings = {
+            ["rust-analyzer"] = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+  },
+  ["gopls"] = {
+    cmd = {"gopls", "serve"},
+    settings = {
+      ["gopls"] = {
+          analyses = {
+            unusedparams = true
+          },
+          staticcheck = true
+      }
+    }
+  },
+}
 
 -- iterate over servers
-servers = { "pyright", "tsserver" }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup{ on_attach = on_attach }
+for lsp, lsp_config in pairs(servers) do
+  
+  lsp_config["on_attach"] = on_attach
+  nvim_lsp[lsp].setup(lsp_config)
 end
+
+-- set up efm
+-- set up elm?
