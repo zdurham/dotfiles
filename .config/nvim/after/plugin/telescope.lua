@@ -1,6 +1,7 @@
 local status, telescope = pcall(require, "telescope")
 if (not status) then return end
 
+print("telescope is being loaded")
 local actions = require('telescope.actions')
 local builtin = require('telescope.builtin')
 
@@ -9,6 +10,7 @@ local function telescope_buffer_dir()
 end
 
 local fb_actions = require"telescope".extensions.file_browser.actions
+
 
 telescope.setup {
   defaults = {

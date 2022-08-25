@@ -6,6 +6,15 @@ end
 
 vim.cmd [[packadd packer.nvim]]
 
+
+packer.init {
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded" }
+    end 
+  }
+}
+
 packer.startup(function(use)
   use "wbthomason/packer.nvim"
 
@@ -13,13 +22,29 @@ packer.startup(function(use)
 
   use 'folke/tokyonight.nvim' -- theme
 
+
+  -- 
+  use 'onsails/lspkind-nvim'
+
+  -- autocomplete plugins
+  use "hrsh7th/nvim-cmp"
+  use "hrsh7th/cmp-buffer"
+  use "hrsh7th/cmp-path"
+  use "hrsh7th/cmp-nvim-lsp"
+
+
+  -- snippets
+  use "L3MON4D3/LuaSnip" 
+  use "rafamadriz/friendly-snippets"
+
+
   use 'nvim-lua/plenary.nvim' -- utility functions
   use 'nvim-telescope/telescope.nvim' -- fuzzy finder
   use 'nvim-telescope/telescope-file-browser.nvim' -- file browser 
   use 'neovim/nvim-lspconfig' -- common lsp configurations
   use 'glepnir/lspsaga.nvim' -- LSP UIs!
 
-  
+  use 'jose-elias-alvarez/null-ls.nvim'
   -- TODO add completion
 
 
@@ -35,4 +60,12 @@ packer.startup(function(use)
     config = function() require("nvim-autopairs").setup {} end
   }
 
+
+
+  -- git decorations
+  use 'lewis6991/gitsigns.nvim'
+
+
+  -- git plugin
+  use 'dinhhuy258/git.nvim'
 end)
