@@ -18,11 +18,9 @@ local on_attach = function(client, bufnr)
 end
 
 -- Set up completion
-local capabilities = require("cmp_nvim_lsp").update_capabilities(
-  vim.lsp.protocol.make_client_capabilities()
-)
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-servers = {
+local servers = {
   ["pyright"] = {},
   ["tsserver"] = {},
   ["rust_analyzer"] = {
@@ -70,16 +68,15 @@ servers = {
     }
   },
   ["astro"] = {},
-  ["cssls"] = {}
+  ["cssls"] = {},
+  ["elmls"] = {},
+  ["html"] = {},
 }
 
 -- iterate over servers
 for lsp, lsp_config in pairs(servers) do
-  
   lsp_config["on_attach"] = on_attach
   lsp_config["capabilities"] = capabilities
   nvim_lsp[lsp].setup(lsp_config)
 end
 
--- set up efm
--- set up elm?

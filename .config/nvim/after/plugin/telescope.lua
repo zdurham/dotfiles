@@ -1,7 +1,5 @@
 local status, telescope = pcall(require, "telescope")
 if (not status) then return end
-
-print("telescope is being loaded")
 local actions = require('telescope.actions')
 local builtin = require('telescope.builtin')
 
@@ -24,7 +22,8 @@ telescope.setup {
     file_browser = {
       theme = "dropdown",
       initial_mode = "normal",
-      -- disable netrw and use telescope-file-browser instead
+      respect_gitignore = false,
+      hidden = true,
       hijack_netrw = true,
       mappings = {
         ["i"] = {
