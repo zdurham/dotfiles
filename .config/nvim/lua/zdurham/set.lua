@@ -11,6 +11,8 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
+-- netrw customizations
+vim.g.netrw_banner = 0
 
 -- no text wrap please
 vim.opt.wrap = false
@@ -29,11 +31,4 @@ vim.opt.updatetime = 50
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
 vim.cmd[[hi CursorLineNr guifg=#2abffa]]
--- make the signcolumn background transparent
-vim.cmd[[hi SignColumn guibg=NONE]]
-
--- set the background to be transparent
-vim.cmd[[hi Normal guibg=NONE ctermbg=NONE]]
-vim.cmd[[hi NormalFloat guibg=NONE ctermbg=NONE]]
-
-
+vim.cmd[[set noshowmode]]

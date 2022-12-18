@@ -1,5 +1,11 @@
 local lsp = require("lsp-zero")
 
+require('mason.settings').set({
+    ui = {
+        border = 'rounded'
+    }
+})
+
 lsp.preset("recommended")
 
 lsp.ensure_installed({
@@ -37,5 +43,16 @@ lsp.on_attach(function(client, bufnr)
 
 end)
 
+
+
+-- specific server configs
+lsp.configure('sumneko_lua', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+}})
 
 lsp.setup()

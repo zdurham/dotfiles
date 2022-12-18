@@ -1,4 +1,4 @@
-vim.cmd [[packadd packer.nvim]]
+vim.cmd[[packadd packer.nvim]]
 
 return require("packer").startup(function(use)
 	-- Packer can manage itself
@@ -7,18 +7,11 @@ return require("packer").startup(function(use)
 	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
 	  requires = { {'nvim-lua/plenary.nvim'} }
 	}
-	use({
-	    'rose-pine/neovim',
-	    as = 'rose-pine',
-	    config = function()
-		require('rose-pine').setup({ disable_italics = true })
-		vim.cmd('colorscheme rose-pine')
-	   end
-	})
+
+    use 'folke/tokyonight.nvim'
 
 	use({'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }})
 	use 'ThePrimeagen/harpoon'
-	use 'tpope/vim-fugitive'
 
 	-- lsp configuration
 	use {
@@ -52,4 +45,18 @@ return require("packer").startup(function(use)
             require("Comment").setup({ mappings = false })
         end
     }
+    use 'xiyaowong/nvim-transparent'
+
+    use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
+
+    -- git integrations
+    use {
+      'lewis6991/gitsigns.nvim',
+      -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+    }
+
+    use 'dinhhuy258/git.nvim'
 end)

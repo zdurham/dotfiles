@@ -1,7 +1,11 @@
-function ColorMyPencils(color)
-	color = color or "rose-pine"
-	vim.cmd.colorscheme(color)
-end
+require("tokyonight").setup({
+    style = "night",
+    transparent = true,
+    terminal_colors = true,
+    styles = {
+        comments = { italic = false },
+        keywords = { italic = false }
+    }}
+)
 
-
-ColorMyPencils()
+vim.cmd[[colorscheme tokyonight]]
