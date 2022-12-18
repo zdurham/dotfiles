@@ -1,11 +1,8 @@
-local status, lualine = pcall(require, "lualine")
-if (not status) then return end
-
-lualine.setup {
-  options = {
-    icons_enabled = true,
-    theme = "tokyonight",
-    component_separators = "|",
-    section_separators = { left = '', right = '' }
-  }
-}
+require('lualine').setup({
+    options = {
+        icons_enabled = true,
+        theme = "tokyonight",
+        component_separators = "|",
+        section_separators = { left = '', right = '' }
+    }
+})
