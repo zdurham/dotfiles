@@ -16,6 +16,5 @@ set -g fish_color_autosuggestion white
 # Setting PATH for Python 3.10
 # The original version is saved in /Users/zach/.config/fish/config.fish.pysave
 set -x PATH "/Library/Frameworks/Python.framework/Versions/3.10/bin" "$PATH"
-
-set -gx PNPM_HOME "/Users/zach/Library/pnpm"
+set -gx PNPM_HOME /Users/zach/Library/pnpm
 set -gx PATH "$PNPM_HOME" $PATH
