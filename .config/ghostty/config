@@ -1,0 +1,15 @@
+font-family = "JetBrainsMonoNL Nerd Font Mono"
+font-size = 14
+theme = "tokyonight-storm"
+shell-integration = "fish"
+shell-integration-features = "no-cursor"
+background-opacity = .75
+background-blur-radius = 15
+cursor-style = "block"
+
+# splits
+keybind = cmd+shift+h=goto_split:left
+keybind = cmd+shift+j=goto_split:bottom
+keybind = cmd+shift+k=goto_split:top
+keybind = cmd+shift+l=goto_split:right
+
