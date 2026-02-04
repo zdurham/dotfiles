@@ -1,10 +1,11 @@
 return {
   {
-    "echasnovski/mini.pairs",
+    "folke/flash.nvim",
     enabled = false,
   },
   {
-    "folke/flash.nvim",
+    "nvim-neo-tree/neo-tree.nvim",
+    cmd = "Neotree",
     enabled = false,
   },
 }
