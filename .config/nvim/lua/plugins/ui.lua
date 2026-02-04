@@ -1,9 +1,14 @@
 return {
   {
     "folke/noice.nvim",
+    event = "VeryLazy",
     opts = function(_, opts)
       opts.presets.lsp_doc_border = true
     end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
   },
   {
     "akinsho/bufferline.nvim",
