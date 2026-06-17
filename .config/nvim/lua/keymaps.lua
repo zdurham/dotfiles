@@ -9,7 +9,11 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
 vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
 vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
 
--- Buffers
+-- Resizing windows
+-- vim.keymap.set("n", "<leader>(", "<cmd>vertical resize -2<cr>", opts)
+-- vim.keymap.set("n", "<leader>)", "<cmd>vertical resize +3<cr>", opts)
+
+-- Buffers (not currently in use)
 vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>")
 vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>")
 vim.keymap.set("n", "[b", "<cmd>bprevious<cr>")
@@ -17,15 +21,6 @@ vim.keymap.set("n", "]b", "<cmd>bnext<cr>")
 vim.keymap.set("n", "<leader>bb", "<cmd>e #<cr>")
 vim.keymap.set("n", "<leader>`", "<cmd>e #<cr>")
 vim.keymap.set("n", "<leader>bD", "<cmd>:bd<cr>", opts)
-vim.keymap.set("n", "<leader>bd", function()
-  Snacks.bufdelete()
-end, opts)
-vim.keymap.set("n", "<leader>bo", function()
-  Snacks.bufdelete.other()
-end, opts)
-vim.keymap.set("n", "<leader>bi", function()
-  Snacks.bufdelete.invisible()
-end, opts)
 
 -- Save file
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>")

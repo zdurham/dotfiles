@@ -1,17 +1,3 @@
-local function reload_workspace(bufnr)
-  local clients = vim.lsp.get_clients { bufnr = bufnr, name = 'rust_analyzer' }
-  for _, client in ipairs(clients) do
-    vim.notify 'Reloading Cargo Workspace'
-    ---@diagnostic disable-next-line:param-type-mismatch
-    client:request('rust-analyzer/reloadWorkspace', nil, function(err)
-      if err then
-        error(tostring(err))
-      end
-      vim.notify 'Cargo workspace reloaded'
-    end, 0)
-  end
-end
-
 local function user_sysroot_src()
   return vim.tbl_get(vim.lsp.config['rust_analyzer'], 'settings', 'rust-analyzer', 'cargo', 'sysrootSrc')
 end
@@ -123,6 +109,16 @@ return {
   ---@type lspconfig.settings.rust_analyzer
   settings = {
     ['rust-analyzer'] = {
+      diagnostics = {
+        enable = true,
+        workspace = false,
+        styleLints = true,
+      },
+      inlayHints = {
+        chainingHints = { enable = false }
+      },
+      check = { command = 'clippy' },
+      checkOnSave = true,
       lens = {
         debug = { enable = true },
         enable = true,
@@ -163,8 +159,5 @@ return {
     end
   end,
   on_attach = function(_, bufnr)
-    vim.api.nvim_buf_create_user_command(bufnr, 'LspCargoReload', function()
-      reload_workspace(bufnr)
-    end, { desc = 'Reload current cargo workspace' })
   end,
 }

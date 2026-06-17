@@ -1,16 +1,17 @@
-[x] configure options
-[x] install & configure oil
-[x] setup keymaps
-[x] configure snacks.nvim (finder)
-[x] configure harpoon
-[x] setup colorscheme
-[x] setup blink completions (using v1)
-[x] configure noice.nvim
-[x] setup lsp
-[x] setup mason for installing lsps
-[x] configure lua lsp
-[x] configure typescript lsp
-[x] configure rust lsp
-[x] configure treesitter
-[] explore treesitter text objects
-[] configure status line
+- [x] configure options
+- [x] install & configure oil
+- [x] setup keymaps
+- [x] configure snacks.nvim (finder)
+- [x] configure harpoon
+- [x] setup colorscheme
+- [x] setup blink completions (using v1)
+- [x] configure noice.nvim
+- [x] setup lsp
+- [x] setup mason for installing lsps
+- [x] configure lua lsp
+- [x] configure typescript lsp
+- [x] configure rust lsp
+- [x] configure treesitter
+- [x] configure status line
+- [] explore treesitter text objects
+- [] handle diagnositcs

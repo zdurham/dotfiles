@@ -7,7 +7,7 @@ vim.opt.termguicolors = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
-vim.opt.expandtab = true          
+vim.opt.expandtab = true
 
 -- UI
 vim.opt.number = true               -- show absolute number
@@ -21,5 +21,6 @@ vim.opt.incsearch = true            -- search as characters are entered
 vim.opt.hlsearch = false            -- do not highlight matches
 vim.opt.ignorecase = true           -- ignore case in searches by default
 vim.opt.smartcase = true            -- but make it case sensitive if an uppercase is entered
+
 
 
