@@ -3,17 +3,15 @@ local colors = require("colors")
 local wifi = sbar.add("item", "wifi", {
 	position = "right",
 	label = {
-		font = "Hack Nerd Font:Regular:14.0",
-		-- y_offset = -1,
-		max_chars = 10,
+		font = "CommitMono Nerd Font:Regular:12",
+		max_chars = 8,
 	},
 	scroll_texts = true,
 	popup = {
 		background = {
-			color = colors.BACKGROUND_BASE,
+			color = colors.TRANSPARENT,
 			border_width = 2,
-			border_color = colors.HIGHLIGHT_TEXT,
-			corner_radius = 10,
+			border_color = colors.HIGHLIGHT,
 		},
 		y_offset = 5,
 	},
@@ -22,12 +20,12 @@ local wifi = sbar.add("item", "wifi", {
 -- Add popup items
 local privAddr = sbar.add("item", {
 	position = "popup." .. wifi.name,
-	icon = { string = "󰌗" },
+	icon = { string = "󰌗", padding_left = 5 },
 })
 
 local pubAddr = sbar.add("item", {
 	position = "popup." .. wifi.name,
-	icon = { string = "󰖟" },
+	icon = { string = "󰖟", padding_left = 5 },
 })
 
 wifi:subscribe({ "wifi_change", "mouse.entered", "mouse.exited" }, function(env)
@@ -43,7 +41,7 @@ wifi:subscribe({ "wifi_change", "mouse.entered", "mouse.exited" }, function(env)
 		if ipv4 or ipv6 then
 			sbar.exec("networksetup -listpreferredwirelessnetworks en0 | sed -n '2s/^\t//p'", function(ssid)
 				wifi:set({
-					icon = { string = "ᯤ", y_offset = 2 },
+					icon = { string = "󰄍" },
 					label = { string = ssid },
 				})
 				sbar.exec(
@@ -54,7 +52,7 @@ wifi:subscribe({ "wifi_change", "mouse.entered", "mouse.exited" }, function(env)
 						})
 					end
 				)
-				sbar.exec("curl https://ipinfo.io/ip; echo", function(addr)
+				sbar.exec("curl -s https://ipinfo.io/ip; echo", function(addr)
 					pubAddr:set({
 						label = addr,
 					})

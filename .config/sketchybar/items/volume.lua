@@ -2,6 +2,21 @@ local colors = require("colors")
 
 local volume = sbar.add("item", "volume", {
 	position = "right",
+  padding_right = 30,
+  icon = {
+    padding_right = 2.5,
+    padding_left = 10,
+  },
+  label = {
+    padding_right = 10,
+    padding_left = 2.5,
+  },
+  background = {
+    height = 30,
+    border_width = 1,
+    color = colors.BRACKET_BACKGROUND,
+    border_color = colors.HIGHLIGHT,
+  }
 })
 
 volume:subscribe("volume_change", function(env)

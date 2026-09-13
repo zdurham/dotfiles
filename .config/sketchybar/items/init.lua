@@ -1,7 +1,6 @@
 -- Load all items
 require("items.spaces")
-require("items.clock")
+require("items.time")
 require("items.volume")
 require("items.battery")
 require("items.wifi")
-require("items.swap")

@@ -11,7 +11,7 @@ local swap = sbar.add("item", "swap", {
 	},
 	background = {
 		corner_radius = 10,
-		color = colors.BACKGROUND_DARK,
+		color = colors.BCKGROUND_DARK,
 		height = 30,
 	},
 	drawing = "off",
